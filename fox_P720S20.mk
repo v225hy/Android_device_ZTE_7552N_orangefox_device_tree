@@ -38,7 +38,8 @@ OF_SPLASH_MAX_SIZE := 130
 
 # === Device type ===
 # A/B device; recovery lives in vendor_boot (no standalone recovery partition)
-OF_AB_DEVICE := 1
+export FOX_AB_DEVICE := 1
+TW_MAX_BRIGHTNESS := 255
 
 # === Binary tool selection ===
 OF_USE_LZ4_BINARY := 1
@@ -70,7 +71,7 @@ OF_NO_TREBLE_COMPATIBILITY_CHECK := 1
 OF_NO_RELOAD_AFTER_DECRYPTION := 1
 OF_USE_LEGACY_TIME_FIXUP := 1
 OF_ENABLE_FRP_ADDON := 1
-OF_VANILLA_BUILD := 1
+export FOX_VANILLA_BUILD := 1
 OF_ALLOW_EARLY_SETTINGS_LOAD := 1
 
 # === Misc ===
