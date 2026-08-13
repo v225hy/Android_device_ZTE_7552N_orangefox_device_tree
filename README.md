@@ -1,5 +1,7 @@
 # OrangeFox device tree for ZTE 7552N / P720S20
 
+fork from https://github.com/byf3332/ZTE-7552N-P720S20-devicetree 
+
 This repository contains the TeamWin Recovery Project device tree for the
 ZTE 7552N (`P720S20`, `ums9620_2h10`).
 
