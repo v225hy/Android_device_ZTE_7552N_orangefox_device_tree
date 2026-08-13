@@ -13,6 +13,9 @@
 # Legacy compatibility. AndroidProducts.mk is the authoritative lunch list.
 add_lunch_combo twrp_P720S20-eng
 
+# OrangeFox 12.1 uses the "omni_" product name (lunch omni_<device>-eng).
+add_lunch_combo omni_P720S20-eng
+
 # === OrangeFox environment variables ===
 export LC_ALL="C"
 export FOX_BUILD_DEVICE="P720S20"
