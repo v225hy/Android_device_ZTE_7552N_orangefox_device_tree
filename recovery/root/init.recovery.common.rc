@@ -227,3 +227,18 @@ on property:sys.usb.configfs=1 && property:sys.usb.config=vser
 
 on property:ro.bootmode=factorytest && property:ro.debuggable=0
     setprop sys.usb.config vser
+
+# === BCB (misc) "boot-recovery" clear workaround ===
+# The Unisoc UMS9620 bootloader keeps a "boot-recovery" command in the misc
+# partition's BCB and the recovery does not reliably clear it, so the device
+# re-enters recovery after every reboot. clear_bcb.sh zeroes the command field
+# on recovery entry so the next boot goes to the system instead of looping.
+service clear_bcb /sbin/sh /clear_bcb.sh
+    user root
+    group root
+    disabled
+    oneshot
+
+on boot
+    start clear_bcb
+
