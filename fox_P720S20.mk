@@ -26,9 +26,15 @@
 # envsetup-time environment variables.
 
 # === Screen settings ===
-# ZTE 7552N: 5.0" 480x854 IPS TFT
-OF_SCREEN_H := 854
-OF_STATUS_H := 24
+# ZTE 7552N: recovery framebuffer is 480x854 (portrait).
+# The OrangeFox theme base resolution is 1080x1920, so the GUI scales
+# uniformly by ~0.444 on both axes. DO NOT set OF_SCREEN_H here: forcing it
+# to 854 makes the height scale 1.0 while width stays 0.444 -> 2.25x horizontal
+# stretch (stretched icons, oversized bottom bar, broken keyboard scaling).
+# Letting OF_SCREEN_H default to 1920 keeps the aspect ratio uniform.
+# OF_STATUS_H is in theme-base px (1920-tall); 54 * 0.444 ~= 24 physical px,
+# matching the previous status-bar height while fixing the stretch.
+OF_STATUS_H := 54
 OF_STATUS_INDENT_LEFT := 0
 OF_STATUS_INDENT_RIGHT := 0
 OF_CLOCK_POS := 1
